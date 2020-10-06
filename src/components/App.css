@@ -1,0 +1,7 @@
+.container{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    max-width:900px;
+    margin:auto;
+}
