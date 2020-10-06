@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
-import BlogPosts from './BlogPosts'
+import BlogPosts from './BlogPosts';
+import NavBar from './NavBar';
 
 function App() {
   return (
     <div>
-      <BlogPosts/>
+      <NavBar />
+      <BlogPosts />
     </div>
   );
 }

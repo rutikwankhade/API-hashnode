@@ -1,6 +1,8 @@
 import React from 'react';
 import Post from './Post';
 import './App.css';
+import { ThreeDots } from 'svg-loaders-react'
+
 
 const query = `
     {
@@ -19,7 +21,8 @@ const query = `
 
 class Blogposts extends React.Component {
     state = {
-        posts: []
+        posts: [],
+        loading: true
     };
 
     componentDidMount() {
@@ -37,23 +40,25 @@ class Blogposts extends React.Component {
         const ApiResponse = await response.json();
 
         console.log(ApiResponse.data.user.publication.posts);
-        this.setState({ posts: ApiResponse.data.user.publication.posts});
+        this.setState({ posts: ApiResponse.data.user.publication.posts, loading: false });
 
 
     };
 
     render() {
+
+        if (this.state.loading) return <div className="spinner"><ThreeDots fill="#e1bafd" trokeOpacity=".125" /></div>;
+
         return (
             <div class="container">
                 {this.state.posts.map((post, index) => (
-                   <a key={index} href={`https://blog.rutikwankhade.dev/${post.slug}`} >
-                       <Post post={post}/>
+                    <a key={index} href={`https://blog.rutikwankhade.dev/${post.slug}`} >
+                        <Post post={post} />
                     </a>
                 ))}
             </div>
         );
     }
 }
-
 
 export default Blogposts;
