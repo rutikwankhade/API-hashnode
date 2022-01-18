@@ -14,6 +14,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ```shell
 git clone https://github.com/rutikwankhade/API-hashnode.git
 cd API-hashnode/
+npm install typescript --save-dev
 npm start
 ```
 
